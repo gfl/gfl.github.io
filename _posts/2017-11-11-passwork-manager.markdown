@@ -6,8 +6,7 @@ date:   2017-11-11 19:35:47 +0000
 categories: pass password management security
 ---
 
-Overview
-========
+## Overview
 
 Sharing secrets, passwords and sensible information in a team is a recurrent challenge. Doing it via email, chats or pen-drives is both rudimentary and insecure by nature. A better approach are password managers.  
 
@@ -22,8 +21,7 @@ In this article, I am going to describe how to use [pass](https://www.passwordst
 
 The main idea of pass is to store the passwords in gpg2 encrypted files organized into meaningful folder hierarchies within a git repository, which can be easily shared across the team.
 
-Using pass
-==========
+## Using pass
 
 If the password store is already initialised with your personal GPG key, 
 you can clone the pass git repo and start using it:
@@ -56,8 +54,7 @@ After changing the password store, you can push your changes:
 $ pass git push
 ```
 
-Installation
-============
+## Installation
 
 To install pass in your Mac you will only need to run:
 
@@ -71,13 +68,11 @@ If you are using Linux or the command above didn’t work in your Mac find below
 
 Once your pass is installed in your system you can start using it. 
 
-Setting up pass
-===============
+## How to set up pass in your team
 
 To use pass each member of the team has to create their own gpg2 keys, which will be used to encrypt the passwords in the password store.
  
-Generate your own gpg keys
---------------------------
+### Generate your own gpg keys
 
 To generate your GPG key pair in Mac do the following:
 
@@ -98,8 +93,7 @@ ssb   rsa2048/234D1E32 2017-11-11 [E] [expires: 2019-11-11]
 $ gpg --keyserver pgp.mit.edu --send-key FCF67125
 ```
 
-Importing the keys of your team members
-----------------------------------------
+### Import the keys of your team members
 
 To be able to generate or update the keys in the store, everybody needs to import their trustee public keys in their key store and sign them as follows:
 
@@ -113,8 +107,7 @@ $ gpg --sign-key 0x34567890
 
 As this might be tedious, you can also create a utility script to automatically import all keys from the `.gpg-id` file.
 
-Initialise the pass store with new the gpg keys
-------------------------------------------
+### Initialise the pass store with new the gpg keys
 
 Once you have all the keys of your team, you can initialise the password store. A new repository is just a new git rep.
 
@@ -132,8 +125,7 @@ This are actually very simple operations
  * Creates a file with `~/.password-store/.gpg-id` one line per key.
  * Performs a `git init` in `~/.password-store`
 
-Add or remove a new team member
--------------------------------
+### Add or remove a new team member
 
 To do so, you only need to rerun the command `pass init ...` with all the valid keys.
 

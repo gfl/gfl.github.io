@@ -120,10 +120,10 @@ $ pass git remote add origin git@gitserver.company.com/team/password-store
 $ pass git push -u --all
 ```
 
-This are actually very simple operations
- * Creates the directory `~/.password-store`
- * Creates a file with `~/.password-store/.gpg-id` one line per key.
- * Performs a `git init` in `~/.password-store`
+Under the hood, the previous commands are simply doing the following:
+* Create the directory `~/.password-store`.
+* Create the file `~/.password-store/.gpg-id` with one line per key.
+* Perform a `git init` in `~/.password-store`.
 
 ### Add or remove a new team member
 
